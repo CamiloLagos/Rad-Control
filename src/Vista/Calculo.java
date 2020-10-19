@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import Modelo.Barrera;
 import Modelo.Control;
 import Modelo.ImageLoader;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 /**
@@ -172,9 +173,9 @@ public class Calculo extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtNombreDelArea)
                     .addComponent(cbxTipoDeBarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxAreaAProteger, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbxFactorOcupacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cbxFactorOcupacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -344,7 +345,7 @@ public class Calculo extends javax.swing.JPanel {
     private float factorOcupa = 0;
     private String area;
     double x;
-
+    private CalculosRegistrados calculosRegistrados = null;
     public void listener() {
         btnCalcular.addActionListener(f -> {
             String nombre = txtNombre.getText();
@@ -390,6 +391,16 @@ public class Calculo extends javax.swing.JPanel {
             p.control.agregarBarrera(barrera);
             btnCancelar.doClick();
             barrera = null;
+            if(calculosRegistrados == null){
+                calculosRegistrados = new CalculosRegistrados(p, control, this);
+            }
+            p.remove(this);
+            p.add(calculosRegistrados, BorderLayout.CENTER);
+            p.pack();
+            p.setLocationRelativeTo(null);
+            p.invalidate();
+            p.revalidate();
+            p.repaint();
         });
         btnOtro.addActionListener(f -> {
             if (cbxAreaAProteger.getSelectedItem().toString().equals("Otro")) {

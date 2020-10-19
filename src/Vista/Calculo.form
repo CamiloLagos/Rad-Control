@@ -63,9 +63,9 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="txtNombreDelArea" alignment="0" max="32767" attributes="0"/>
                       <Component id="cbxTipoDeBarrera" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtNombre" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="cbxAreaAProteger" alignment="0" max="32767" attributes="0"/>
                       <Component id="cbxFactorOcupacion" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">

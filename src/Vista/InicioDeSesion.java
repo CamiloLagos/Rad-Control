@@ -201,6 +201,9 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
     Calculo pr = null;
 
     public void listeners() {
+        txtContra.addActionListener(f ->{
+            btnLog.doClick();
+        });
         btnRegistrar.addActionListener(f -> {
             if (in == null) {
                 in = new Registrar(p.control);

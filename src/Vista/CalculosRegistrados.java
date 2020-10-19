@@ -5,17 +5,34 @@
  */
 package Vista;
 
+import Modelo.Barrera;
+import Modelo.Control;
+import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import javax.swing.event.ListDataListener;
+
 /**
  *
- * @author Vasquez10
+ * @author juanc
  */
-public class CalculosRegistrados extends javax.swing.JFrame {
-
+public class CalculosRegistrados extends javax.swing.JPanel {
+    private Control control;
+    private Principal p;
+    private Calculo c;
     /**
      * Creates new form CalculosRegistrados
+     * @param p
+     * @param control
      */
-    public CalculosRegistrados() {
+    public CalculosRegistrados(Principal p, Control control, Calculo c) {
         initComponents();
+        this.control = control;
+        this.p = p;
+        this.c = c;
+        listeners();
+        manejadorJlist mj = new manejadorJlist();
+        jList1.setModel(mj);
     }
 
     /**
@@ -27,45 +44,103 @@ public class CalculosRegistrados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        btnActualizar = new javax.swing.JButton();
+        btnOtroCalculo = new javax.swing.JButton();
+        btnVer = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jScrollPane1.setViewportView(jList1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        btnActualizar.setText("Actualizar");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        btnOtroCalculo.setText("Realizar otro calculo");
+
+        btnVer.setText("Ver...");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 300, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnActualizar)
+                        .addGap(95, 95, 95)
+                        .addComponent(btnVer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(btnOtroCalculo)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 200, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizar)
+                    .addComponent(btnVer)
+                    .addComponent(btnOtroCalculo))
+                .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnOtroCalculo;
+    private javax.swing.JButton btnVer;
+    private javax.swing.JList<Object> jList1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+    
+    public class manejadorJlist implements ListModel<Object>{
+        
+        @Override
+        public int getSize() {
+            return control.getBarreras().size();
+        }
+
+        @Override
+        public Object getElementAt(int i) {
+            return control.getBarreras().get(i).toString2();
+        }
+
+        @Override
+        public void addListDataListener(ListDataListener ll) {
+            
+        }
+
+        @Override
+        public void removeListDataListener(ListDataListener ll) {
+            
+        } 
+    }
+    
+    public void listeners(){
+        btnActualizar.addActionListener(f -> {
+            jList1.updateUI();
+        });
+        btnVer.addActionListener(f -> {
+            int it = jList1.getSelectedIndex();
+            Barrera barrera = control.getBarreras().get(it);
+            JOptionPane.showMessageDialog(p, barrera.toString());
+        });
+        btnOtroCalculo.addActionListener(f -> {
+            p.remove(this);
+                p.add(c, BorderLayout.CENTER);
+                p.pack();
+                p.setLocationRelativeTo(null);
+                p.invalidate();
+                p.revalidate();
+                p.repaint();
+        });
+        
+    }
+
 }

@@ -278,6 +278,10 @@ public class Barrera {
     public String toString() {
         return "                     Barrera " + "\n" + " \n Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n Área a Proteger: " + AreaProteger + " \n Diseño para Área: " + DisenioDeArea + " \n Imágenes por semana: " + ImagenesxSemana + " \n Voltaje: " + Voltaje + " \n Distancia: " + String.format("%.2f", Distancia) + " \n Factor De Transmision: " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso: " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De Diseño: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp: " + String.format("%.2f", bp) + "\n \n                    Espesor: " + " \n \n Acero: " + String.format("%.2f", acero) + " \n \n Plomo: " + String.format("%.2f", plomo) + " \n \n Concreto: " + String.format("%.2f", concreto) ;
     }
+    
+    public String toString2(){
+        return Nombre;
+    }
 
     @Override
     public int hashCode() {
