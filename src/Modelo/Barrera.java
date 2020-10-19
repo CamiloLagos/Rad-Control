@@ -280,7 +280,7 @@ public class Barrera {
     }
     
     public String toString2(){
-        return Nombre;
+        return "Nombre de barrera: " + Nombre;
     }
 
     @Override
