@@ -155,9 +155,9 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
-                        .addGap(68, 68, 68))
+                        .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -253,7 +253,7 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
 
         @Override
         public void paint(Graphics g) {
-            imagen = new ImageIcon(getClass().getResource("/ImagenFondo/Fondo.jpeg")).getImage();
+            imagen = new ImageIcon(getClass().getResource("/Vista/Logo.jpeg")).getImage();
 
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             setOpaque(true);
