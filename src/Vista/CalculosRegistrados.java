@@ -8,6 +8,9 @@ package Vista;
 import Modelo.Barrera;
 import Modelo.Control;
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
@@ -50,6 +53,7 @@ public class CalculosRegistrados extends javax.swing.JPanel {
         btnActualizar = new javax.swing.JButton();
         btnOtroCalculo = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
+        btnCopiar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -57,11 +61,15 @@ public class CalculosRegistrados extends javax.swing.JPanel {
         jList1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
-        btnActualizar.setText("Actualizar");
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconfinder_sync_126579.png"))); // NOI18N
+        btnActualizar.setToolTipText("Actualizar la lista");
 
         btnOtroCalculo.setText("Realizar otro calculo");
 
         btnVer.setText("Ver...");
+
+        btnCopiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconfinder_document_file_paper_page-02_2850904.png"))); // NOI18N
+        btnCopiar.setToolTipText("Copiar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -72,23 +80,26 @@ public class CalculosRegistrados extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnActualizar)
-                        .addGap(95, 95, 95)
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnOtroCalculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                         .addComponent(btnVer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(btnOtroCalculo)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCopiar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 386, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnActualizar)
-                    .addComponent(btnVer)
-                    .addComponent(btnOtroCalculo))
+                    .addComponent(btnCopiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnOtroCalculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -96,6 +107,7 @@ public class CalculosRegistrados extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnCopiar;
     private javax.swing.JButton btnOtroCalculo;
     private javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabel1;
@@ -144,7 +156,20 @@ public class CalculosRegistrados extends javax.swing.JPanel {
                 p.revalidate();
                 p.repaint();
         });
+        btnCopiar.addActionListener(f -> {
+            int it = jList1.getSelectedIndex();
+            Barrera barrera = control.getBarreras().get(it);
+            copiar(barrera.toString());
+            JOptionPane.showMessageDialog(p, "Datos de la barrera copiados!");
+        });
         
+    }
+    
+    public void copiar(String text){
+        StringSelection ss = new StringSelection(text);
+        
+        Clipboard cb = Toolkit.getDefaultToolkit().getSystemClipboard();
+        cb.setContents(ss, null);
     }
 
 }
