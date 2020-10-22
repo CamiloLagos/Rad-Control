@@ -64,7 +64,7 @@ public class CalculosRegistrados extends javax.swing.JPanel {
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/iconfinder_sync_126579.png"))); // NOI18N
         btnActualizar.setToolTipText("Actualizar la lista");
 
-        btnOtroCalculo.setText("Realizar otro calculo");
+        btnOtroCalculo.setText("Realizar otro cálculo");
 
         btnVer.setText("Ver...");
 

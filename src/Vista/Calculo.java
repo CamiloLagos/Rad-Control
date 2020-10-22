@@ -88,7 +88,6 @@ public class Calculo extends javax.swing.JPanel {
 
         labelTipoBarrera.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         labelTipoBarrera.setText("Tipo de barrera:");
-        labelTipoBarrera.setToolTipText("Ganoso de irme a dormir");
 
         cbxTipoDeBarrera.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         cbxTipoDeBarrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barrera primaria", "Barrera secundaria" }));
@@ -108,7 +107,7 @@ public class Calculo extends javax.swing.JPanel {
         jLabel6.setText("Área a proteger:");
 
         cbxAreaAProteger.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        cbxAreaAProteger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrativa", "Casa", "Pasillo", "Baño público", "Baño personal", "Almacen", "Vestier", "Anden", "Jardin", "Calle", "Asensor", "Closet", "Sala de espera", "Otro" }));
+        cbxAreaAProteger.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrativa", "Casa", "Pasillo", "Baño público", "Baño personal", "Almacén", "Vestier", "Andén", "Jardín", "Calle", "Ascensor", "Closet", "Sala de espera", "Otro" }));
 
         jLabel9.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         jLabel9.setText("Voltaje[KV]:");
@@ -120,7 +119,7 @@ public class Calculo extends javax.swing.JPanel {
         txtNombreDelArea.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
-        jLabel8.setText("Factor ocupacion:");
+        jLabel8.setText("Factor ocupación:");
 
         cbxVoltaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "50", "70", "90" }));
 

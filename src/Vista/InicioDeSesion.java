@@ -66,7 +66,7 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
         jLabel7 = new javax.swing.JLabel();
 
         jLabel2.setFont(new java.awt.Font("Sitka Text", 1, 18)); // NOI18N
-        jLabel2.setText("Inicio de sesiÃ³n");
+        jLabel2.setText("Inicio de sesión");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -81,7 +81,7 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
         });
 
         jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
-        jLabel3.setText("ContraseÃ±a:");
+        jLabel3.setText("Contraseña:");
 
         btnLog.setBackground(new java.awt.Color(255, 255, 255));
         btnLog.setFont(new java.awt.Font("Sitka Text", 1, 12)); // NOI18N

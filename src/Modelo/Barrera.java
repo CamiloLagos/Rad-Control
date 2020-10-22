@@ -71,28 +71,28 @@ public class Barrera {
             case "Pasillo":
                 factorDeOcupacion = (float) 0.2;
                 break;
-            case "Ba√±o p√∫blico":
+            case "BaÒo p˙blico":
                 factorDeOcupacion = (float) 0.2;
                 break;
-            case "Ba√±o personal":
+            case "BaÒo personal":
                 factorDeOcupacion = (float) 0.2;
                 break;
-            case "Almacen":
+            case "AlmacÈn":
                 factorDeOcupacion = (float) 0.025;
                 break;
             case "Vestier":
                 factorDeOcupacion = (float) 0.025;
                 break;
-            case "Anden":
+            case "AndÈn":
                 factorDeOcupacion = (float) 0.025;
                 break;
-            case "Jard√≠n":
+            case "JardÌn":
                 factorDeOcupacion = (float) 0.025;
                 break;
             case "Calle":
                 factorDeOcupacion = (float) 0.025;
                 break;
-            case "Asensor":
+            case "Ascensor":
                 factorDeOcupacion = (float) 0.025;
                 break;
             case "Closet":
@@ -276,7 +276,7 @@ public class Barrera {
 
     @Override
     public String toString() {
-        return "                     Barrera " + "\n" + " \n Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n √Årea a Proteger: " + AreaProteger + " \n Dise√±o para √Årea: " + DisenioDeArea + " \n Im√°genes por semana: " + ImagenesxSemana + " \n Voltaje[KV]: " + Voltaje + " \n Distancia(d)[m]: " + String.format("%.2f", Distancia) + " \n Factor De Transmision(T): " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo(W)[mAmin/sem]: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso(U): " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De Dise√±o(P)[mGy/sem]: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp(x,m,Vt): " + String.format("%.2f", bp) + "\n \n                    Espesor: " + " \n \n x(B,m,Vt)Acero[mm]: " + String.format("%.2f", acero) + " \n \n x(B,m,Vt)Plomo[mm]: " + String.format("%.2f", plomo) + " \n \n x(B,m,Vt)Concreto[mm]: " + String.format("%.2f", concreto) ;
+        return "                     Barrera " + "\n" + " \n Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n ¡rea a Proteger: " + AreaProteger + " \n DiseÒo para ¡rea: " + DisenioDeArea + " \n Im·genes por semana: " + ImagenesxSemana + " \n Voltaje[KV]: " + Voltaje + " \n Distancia(d)[m]: " + String.format("%.2f", Distancia) + " \n Factor De Transmision(T): " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo(W)[mAmin/sem]: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso(U): " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De DiseÒo(P)[mGy/sem]: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp(x,m,Vt): " + String.format("%.2f", bp) + "\n \n                    Espesor: " + " \n \n x(B,m,Vt)Acero[mm]: " + String.format("%.2f", acero) + " \n \n x(B,m,Vt)Plomo[mm]: " + String.format("%.2f", plomo) + " \n \n x(B,m,Vt)Concreto[mm]: " + String.format("%.2f", concreto) ;
     }
     
     public String toString2(){

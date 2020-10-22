@@ -55,8 +55,8 @@ public class Registrar extends javax.swing.JDialog {
         txtLicencia = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        txtContraseña = new javax.swing.JPasswordField();
-        txtContraseña2 = new javax.swing.JPasswordField();
+        txtContrasena = new javax.swing.JPasswordField();
+        txtContrasena2 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -71,10 +71,10 @@ public class Registrar extends javax.swing.JDialog {
         txtNombreU.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
-        jLabel3.setText("Contraseña:");
+        jLabel3.setText("Contrase�a:");
 
         jLabel4.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
-        jLabel4.setText("Confirmar contraseña:");
+        jLabel4.setText("Confirmar contrase�a:");
 
         jLabel5.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
         jLabel5.setText("Licencia:");
@@ -107,8 +107,8 @@ public class Registrar extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtContraseña2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtContrasena2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(txtContrasena, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreU, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLicencia))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -127,11 +127,11 @@ public class Registrar extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtContraseña2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtContrasena2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLicencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,8 +191,8 @@ public class Registrar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField txtContraseña;
-    private javax.swing.JPasswordField txtContraseña2;
+    private javax.swing.JPasswordField txtContrasena;
+    private javax.swing.JPasswordField txtContrasena2;
     private javax.swing.JTextField txtLicencia;
     private javax.swing.JTextField txtNombreU;
     // End of variables declaration//GEN-END:variables
@@ -201,8 +201,8 @@ public class Registrar extends javax.swing.JDialog {
         btnRegistrar.addActionListener(f ->{
             try {
                 String nombre = txtNombreU.getText();
-                String contrasena = String.valueOf(txtContraseña.getPassword());
-                String duplicado = String.valueOf(txtContraseña2.getPassword());
+                String contrasena = String.valueOf(txtContrasena.getPassword());
+                String duplicado = String.valueOf(txtContrasena2.getPassword());
                 String licencia = txtLicencia.getText();
                 if(!(contrasena.equals(duplicado))){
                     JOptionPane.showMessageDialog(this, "Las contraseñas no son iguales");
@@ -221,8 +221,8 @@ public class Registrar extends javax.swing.JDialog {
         });
         btnCancelar.addActionListener(f ->{
            txtNombreU.setText("");
-           txtContraseña.setText("");
-           txtContraseña2.setText("");
+           txtContrasena.setText("");
+           txtContrasena2.setText("");
            txtLicencia.setText("");
         });
     }
