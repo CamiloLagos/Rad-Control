@@ -10,6 +10,9 @@ import java.awt.BorderLayout;
 import javax.swing.UIManager;
 
 import Modelo.Control;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,7 +45,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
         setIconImage(Modelo.ImageLoader.cargarImagen("Vista/Logo.jpeg"));
         setTitle("RadControl S.A.S");
-        
+        onClose();
     }
 
     /**
@@ -54,18 +57,18 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 323, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 373, Short.MAX_VALUE)
+            .addGap(0, 313, Short.MAX_VALUE)
         );
 
         pack();
@@ -80,11 +83,32 @@ public class Principal extends javax.swing.JFrame {
     }
 
     /**
-     * @param args the command line arguments
      */
     
         
-        
+    public void onClose() {
+
+		addWindowListener(new WindowAdapter() {
+
+			@Override
+			public void windowClosing(WindowEvent we) {
+
+				String[] options = {"Salir", "Cancelar"};
+
+				int ans = JOptionPane.showOptionDialog(null, "Seguro que desea salir?", "Salir",
+						JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+				switch (ans) {
+				case 0:
+                                    dispose();
+                                    setVisible(false);
+                                    System.exit(0);
+                                    break;
+                                default:
+                                    break;
+				}
+			}
+		});
+	}    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
