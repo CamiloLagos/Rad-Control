@@ -22,13 +22,13 @@ import javax.swing.event.ListDataListener;
 public class CalculosRegistrados extends javax.swing.JPanel {
     private Control control;
     private Principal p;
-    private Calculo c;
+    private CalculoPeriapical c;
     /**
      * Creates new form CalculosRegistrados
      * @param p
      * @param control
      */
-    public CalculosRegistrados(Principal p, Control control, Calculo c) {
+    public CalculosRegistrados(Principal p, Control control, CalculoPeriapical c) {
         initComponents();
         this.control = control;
         this.p = p;
@@ -95,11 +95,12 @@ public class CalculosRegistrados extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnActualizar)
-                    .addComponent(btnCopiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCopiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnOtroCalculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnActualizar)
+                        .addComponent(btnOtroCalculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -159,7 +160,7 @@ public class CalculosRegistrados extends javax.swing.JPanel {
         btnCopiar.addActionListener(f -> {
             int it = jList1.getSelectedIndex();
             Barrera barrera = control.getBarreras().get(it);
-            copiar(barrera.toString());
+            copiar(barrera.toStringCopy());
             JOptionPane.showMessageDialog(p, "Datos de la barrera copiados!");
         });
         

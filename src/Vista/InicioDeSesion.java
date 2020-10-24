@@ -184,9 +184,9 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -215,7 +215,7 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
     Registrar in = null;
-    Calculo pr = null;
+    Opciones op = null;
 
     public void listeners() {
         txtContra.addActionListener(f ->{
@@ -246,11 +246,11 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
                 if(usuario != null){
                     System.out.println(usuario.getcontrasena().equals(String.valueOf(txtContra.getPassword())));
                     if(usuario.getcontrasena().equals(String.valueOf(txtContra.getPassword()))){
-                if (pr == null) {
-                    pr = new Calculo(p, control);
+                if (op == null) {
+                    op = new Opciones();
                 }
                 p.remove(this);
-                p.add(pr, BorderLayout.CENTER);
+                p.add(op, BorderLayout.CENTER);
                 p.pack();
                 p.setLocationRelativeTo(null);
                 p.invalidate();

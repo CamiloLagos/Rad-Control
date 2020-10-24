@@ -44,11 +44,20 @@ public class Barrera {
             case 50:
                 factorDeTransmision = 0.06;
                 break;
+            case 60:
+                factorDeTransmision = 0.07;
+                break;
             case 70:
                 factorDeTransmision = 0.08;
                 break;
+            case 80:
+                factorDeTransmision = 0.09;
+                break;
             case 90:
                 factorDeTransmision = 0.1;
+                break;
+            case 100:
+                factorDeTransmision = 0.11;
                 break;
         }
         if (this.TipoBarrera.equals("Barrera primaria")) {
@@ -86,7 +95,7 @@ public class Barrera {
             case "Anden":
                 factorDeOcupacion = (float) 0.025;
                 break;
-            case "Jardín":
+            case "Jardin":
                 factorDeOcupacion = (float) 0.025;
                 break;
             case "Calle":
@@ -140,6 +149,45 @@ public class Barrera {
                         break;
                     default:
                         cargaDeTrabajo = 13;
+                        break;
+                }
+                break;
+            case 25:
+                switch(this.Voltaje){
+                    case 50:
+                        cargaDeTrabajo = 75;
+                        break;
+                    case 70:
+                        cargaDeTrabajo = 42;
+                        break;
+                    default:
+                        cargaDeTrabajo = 25;
+                        break;
+                }
+                break;
+                case 50:
+                switch(this.Voltaje){
+                    case 50:
+                        cargaDeTrabajo = 150;
+                        break;
+                    case 70:
+                        cargaDeTrabajo = 83;
+                        break;
+                    default:
+                        cargaDeTrabajo = 50;
+                        break;
+                }
+                break;
+                case 75:
+                switch(this.Voltaje){
+                    case 50:
+                        cargaDeTrabajo = 225;
+                        break;
+                    case 70:
+                        cargaDeTrabajo = 125;
+                        break;
+                    default:
+                        cargaDeTrabajo = 75;
                         break;
                 }
                 break;
@@ -276,11 +324,15 @@ public class Barrera {
 
     @Override
     public String toString() {
-        return "                     Barrera " + "\n" + " \n Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n Área a Proteger: " + AreaProteger + " \n Diseño para Área: " + DisenioDeArea + " \n Imágenes por semana: " + ImagenesxSemana + " \n Voltaje[KV]: " + Voltaje + " \n Distancia(d)[m]: " + String.format("%.2f", Distancia) + " \n Factor De Transmision(T): " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo(W)[mAmin/sem]: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso(U): " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De Diseño(P)[mGy/sem]: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp(x,m,Vt): " + String.format("%.2f", bp) + "\n \n                    Espesor: " + " \n \n x(B,m,Vt)Acero[mm]: " + String.format("%.2f", acero) + " \n \n x(B,m,Vt)Plomo[mm]: " + String.format("%.2f", plomo) + " \n \n x(B,m,Vt)Concreto[mm]: " + String.format("%.2f", concreto) ;
+        return "                     Barrera " + "\n" + " \n Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n Área a Proteger: " + AreaProteger + " \n Diseño para Área: " + DisenioDeArea + " \n Imágenes por semana: " + ImagenesxSemana + " \n Voltaje[KV]: " + Voltaje + " \n Distancia(d)[m]: " + String.format("%.2f", Distancia) + " \n Factor De Transmision(T): " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo(W)[mAmin/sem]: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso(U): " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De Diseño(P)[mGy/sem]: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp(x,m,Vt): " + String.format("%.2f", bp) + "\n \n         Materiales y espesores a disponer: " + " \n x(B,m,Vt)Acero[mm]: " + String.format("%.2f", acero) + " \n x(B,m,Vt)Plomo[mm]: " + String.format("%.2f", plomo) + " \n x(B,m,Vt)Concreto[mm]: " + String.format("%.2f", concreto) ;
     }
     
     public String toString2(){
         return "Nombre de barrera: " + Nombre;
+    }
+    
+    public String toStringCopy() {
+        return "Nombre: " + Nombre + " \n Tipo de Barrera: " + TipoBarrera + " \n Área a Proteger: " + AreaProteger + " \n Diseño para Área: " + DisenioDeArea + " \n Imágenes por semana: " + ImagenesxSemana + " \n Voltaje[KV]: " + Voltaje + " \n Distancia(d)[m]: " + String.format("%.2f", Distancia) + " \n Factor De Transmision(T): " + String.format("%.2f", factorDeTransmision) + " \n Carga De Trabajo(W)[mAmin/sem]: " + String.format("%.2f", cargaDeTrabajo) + " \n Factor De Uso(U): " + String.format("%.2f", factorDeUso) + " \n Factor De Ocupacion: " + String.format("%.2f", factorDeOcupacion) + " \n Dosis Limite De Diseño(P)[mGy/sem]: " + String.format("%.2f", dosisDeLimiteDeDisenio) + " \n Bp(x,m,Vt): " + String.format("%.2f", bp) + "\n \n Materiales y espesores a disponer: " + " \n x(B,m,Vt)Acero[mm]: " + String.format("%.2f", acero) + " \n x(B,m,Vt)Plomo[mm]: " + String.format("%.2f", plomo) + " \n x(B,m,Vt)Concreto[mm]: " + String.format("%.2f", concreto) ;
     }
     
    
