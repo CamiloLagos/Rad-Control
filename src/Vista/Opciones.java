@@ -5,17 +5,27 @@
  */
 package Vista;
 
+import Modelo.Control;
+import java.awt.BorderLayout;
+
 /**
  *
  * @author juanc
  */
 public class Opciones extends javax.swing.JPanel {
-
+    Principal p;
+    Control control;
     /**
      * Creates new form Opciones
+     * @param p
+     * @param control
      */
-    public Opciones() {
+    public Opciones(Principal p, Control control) {
+        this.p = p;
+        this.control = control;
         initComponents();
+        listeners();
+        
     }
 
     /**
@@ -27,8 +37,8 @@ public class Opciones extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnPeriapical = new javax.swing.JButton();
+        btnPanoramico = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -36,9 +46,9 @@ public class Opciones extends javax.swing.JPanel {
 
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Que desea calcular?", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 3, 18))); // NOI18N
 
-        jButton1.setText("Periapical");
+        btnPeriapical.setText("Periapical");
 
-        jButton2.setText("Panoramico");
+        btnPanoramico.setText("Panoramico");
 
         jButton3.setText("Rayos X");
 
@@ -55,12 +65,12 @@ public class Opciones extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                    .addComponent(btnPeriapical, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPanoramico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(53, 53, 53))
@@ -70,8 +80,8 @@ public class Opciones extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnPeriapical)
+                    .addComponent(btnPanoramico))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
@@ -86,11 +96,42 @@ public class Opciones extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnPanoramico;
+    private javax.swing.JButton btnPeriapical;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     // End of variables declaration//GEN-END:variables
+    CalculoPeriapical cp = null;
+    CalculoPanoramico cpa = null;
+    
+    public void listeners(){
+        btnPeriapical.addActionListener(f ->{
+            if(cp == null){
+                control.cargarDatos();
+                cp = new CalculoPeriapical(p, control);
+            }
+            p.remove(this);
+            p.add(cp, BorderLayout.CENTER);
+            p.pack();
+            p.setLocationRelativeTo(null);
+            p.invalidate();
+            p.revalidate();
+            p.repaint();
+        });
+        btnPanoramico.addActionListener(f ->{
+            if (cpa == null) {
+                control.cargarDatos();
+                cpa = new CalculoPanoramico(p, control);
+            }
+            p.remove(this);
+            p.add(cpa, BorderLayout.CENTER);
+            p.pack();
+            p.setLocationRelativeTo(null);
+            p.invalidate();
+            p.revalidate();
+            p.repaint();
+        });
+    }
 }

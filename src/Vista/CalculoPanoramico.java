@@ -97,6 +97,7 @@ public class CalculoPanoramico extends javax.swing.JPanel {
 
         cbxTipoDeBarrera.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         cbxTipoDeBarrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Barrera primaria", "Barrera secundaria" }));
+        cbxTipoDeBarrera.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         jLabel4.setText("Diseño para Área:");
@@ -107,7 +108,7 @@ public class CalculoPanoramico extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         jLabel5.setText("Imágenes por semana:");
 
-        cbxImagenesPorSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "100", "200", "300" }));
+        cbxImagenesPorSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "25", "50", "75" }));
 
         jLabel6.setFont(new java.awt.Font("Sitka Text", 0, 11)); // NOI18N
         jLabel6.setText("Área a proteger:");
@@ -351,7 +352,7 @@ public class CalculoPanoramico extends javax.swing.JPanel {
             btnCancelar.doClick();
             barrera = null;
             if(calculosRegistrados == null){
-                calculosRegistrados = new CalculosRegistrados(p, control, this);
+                calculosRegistrados = new CalculosRegistrados(p, control, null);
             }
             p.remove(this);
             p.add(calculosRegistrados, BorderLayout.CENTER);

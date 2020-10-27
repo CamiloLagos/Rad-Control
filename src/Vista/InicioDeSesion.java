@@ -247,7 +247,7 @@ public class InicioDeSesion extends javax.swing.JPanel implements HTTPSUtils.OnR
                     System.out.println(usuario.getcontrasena().equals(String.valueOf(txtContra.getPassword())));
                     if(usuario.getcontrasena().equals(String.valueOf(txtContra.getPassword()))){
                 if (op == null) {
-                    op = new Opciones();
+                    op = new Opciones(p, control);
                 }
                 p.remove(this);
                 p.add(op, BorderLayout.CENTER);
