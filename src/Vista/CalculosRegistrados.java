@@ -23,6 +23,7 @@ public class CalculosRegistrados extends javax.swing.JPanel {
     private Control control;
     private Principal p;
     private CalculoPeriapical c;
+    private CalculoPanoramico cp;
     /**
      * Creates new form CalculosRegistrados
      * @param p
@@ -33,6 +34,16 @@ public class CalculosRegistrados extends javax.swing.JPanel {
         this.control = control;
         this.p = p;
         this.c = c;
+        listeners();
+        manejadorJlist mj = new manejadorJlist();
+        jList1.setModel(mj);
+    }
+    
+    public CalculosRegistrados(Principal p, Control control, CalculoPanoramico cp) {
+        initComponents();
+        this.control = control;
+        this.p = p;
+        this.cp = cp;
         listeners();
         manejadorJlist mj = new manejadorJlist();
         jList1.setModel(mj);
@@ -177,8 +188,13 @@ public class CalculosRegistrados extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(p, barrera.toString());
         });
         btnOtroCalculo.addActionListener(f -> {
-            p.remove(this);
-                p.add(c, BorderLayout.CENTER);
+                p.remove(this);
+                if(c != null){
+                    p.add(c, BorderLayout.CENTER);
+                }else if(cp != null){
+                    cp.asignar();
+                    p.add(cp, BorderLayout.CENTER);
+                }
                 p.pack();
                 p.setLocationRelativeTo(null);
                 p.invalidate();

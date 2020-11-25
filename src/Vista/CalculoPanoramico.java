@@ -352,7 +352,7 @@ public class CalculoPanoramico extends javax.swing.JPanel {
             btnCancelar.doClick();
             barrera = null;
             if(calculosRegistrados == null){
-                calculosRegistrados = new CalculosRegistrados(p, control, null);
+                calculosRegistrados = new CalculosRegistrados(p, control, this);
             }
             p.remove(this);
             p.add(calculosRegistrados, BorderLayout.CENTER);
@@ -371,13 +371,13 @@ public class CalculoPanoramico extends javax.swing.JPanel {
         });
         btnCancelar.addActionListener(f ->{
             txtNombre.setText("");
-            cbxTipoDeBarrera.setSelectedItem(null);
-            cbxAreaAProteger.setSelectedItem(null);
+            cbxTipoDeBarrera.setSelectedIndex(0);
+            cbxAreaAProteger.setSelectedIndex(0);
             txtNombreDelArea.setText("");
-            cbxFactorOcupacion.setSelectedItem(null);
-            cbxDisenioParaArea.setSelectedItem(null);
-            cbxImagenesPorSemana.setSelectedItem(null);
-            cbxVoltaje.setSelectedItem(null);
+            cbxFactorOcupacion.setSelectedIndex(0);
+            cbxDisenioParaArea.setSelectedIndex(0);
+            cbxImagenesPorSemana.setSelectedIndex(0);
+            cbxVoltaje.setSelectedIndex(0);
             txtDistancia.setText("");
         });
     }
@@ -388,5 +388,7 @@ public class CalculoPanoramico extends javax.swing.JPanel {
         repaint();
     }
     
-    
+    public void asignar(){
+        cbxTipoDeBarrera.setSelectedIndex(0);
+    }
 }

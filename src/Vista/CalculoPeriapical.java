@@ -366,13 +366,13 @@ public class CalculoPeriapical extends javax.swing.JPanel {
         });
         btnCancelar.addActionListener(f ->{
             txtNombre.setText("");
-            cbxTipoDeBarrera.setSelectedItem(null);
-            cbxAreaAProteger.setSelectedItem(null);
+            cbxTipoDeBarrera.setSelectedIndex(0);
+            cbxAreaAProteger.setSelectedIndex(0);
             txtNombreDelArea.setText("");
-            cbxFactorOcupacion.setSelectedItem(null);
-            cbxDisenioParaArea.setSelectedItem(null);
-            cbxImagenesPorSemana.setSelectedItem(null);
-            cbxVoltaje.setSelectedItem(null);
+            cbxFactorOcupacion.setSelectedIndex(0);
+            cbxDisenioParaArea.setSelectedIndex(0);
+            cbxImagenesPorSemana.setSelectedIndex(0);
+            cbxVoltaje.setSelectedIndex(0);
             txtDistancia.setText("");
         });
     }
